@@ -1,0 +1,53 @@
+#server:
+#  port: 80820
+spring:
+  profiles:
+    active: dev
+#--- represent to create new documents
+---
+#first docu profile is dev (it can be different name) if we need
+#  diffreent config for diff envi diff profiles are used acording to their config required
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: danushr444
+    url: jdbc:mysql://localhost:3306/article
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: prod
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: danushr444
+    url: jdbc:mysql://localhost:3306/dcbapp-prod
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+---
+spring:
+  config:
+    activate:
+      on-profile: qa
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: danushr444
+    url: jdbc:mysql://localhost:3306/dcbapp-qa
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
